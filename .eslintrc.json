@@ -1,7 +1,15 @@
 {
+    "env": {
+        "browser": true,
+        "es6": true
+    },
     "extends": "airbnb",
     "rules": {
         "semi": 0,
         "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"] }]
+    },
+    "settings": {
+        "ecmascript": 6,
+        "jsx": true
     }
 }
