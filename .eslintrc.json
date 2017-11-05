@@ -11,6 +11,7 @@
     },
     "settings": {
         "ecmascript": 6,
-        "jsx": true
+        "jsx": true,
+        "import/resolver": "webpack"
     }
 }
