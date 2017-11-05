@@ -1,10 +1,19 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = (env) => {
   console.log('NODE_ENV:', env.NODE_ENV)
 
   return {
     context: path.resolve(__dirname, 'src'),
+    devServer: {
+      contentBase: path.join(__dirname, 'dist'),
+      compress: true,
+      historyApiFallback: true,
+      hot: true,
+      port: 9000,
+      stats: 'minimal'
+    },
     entry: './index.js',
     output: {
       filename: 'bundle.js',
@@ -18,10 +27,9 @@ module.exports = (env) => {
     performance: {
       hints: process.env.NODE_ENV === 'production' ? 'warning' : false
     },
-    stats: 'minimal',
-    watch: true,
-    watchOptions: {
-      ignored: './node_modules'
-    }
+    plugins: [
+      new webpack.NamedModulesPlugin(),
+      new webpack.HotModuleReplacementPlugin()
+    ]
   }
 }
