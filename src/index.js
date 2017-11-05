@@ -1,7 +1,7 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 
-const App = () => (
-  <h1>Hello!</h1>
+ReactDOM.render(
+  <h1>Hello Friend!</h1>,
+  document.getElementById('root')
 )
-
-export default App
