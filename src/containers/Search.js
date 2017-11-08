@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import Options from 'components/Options'
+
 const { API_KEY } = process.env
 const API_URL = 'http://api.themoviedb.org/3'
 
-class Welcome extends Component {
+class Search extends Component {
   state = {
     query: '',
-    results: []
+    results: [],
+    showDropDown: false
   }
 
   getResults = () => {
@@ -16,19 +19,27 @@ class Welcome extends Component {
       .catch(e => console.log(e))
   }
 
-  clearResults = () => {
-    console.log('WIP')
+  hideDropdown = () => {
+    this.setState(({
+      showDropDown: false
+    }))
+  }
+
+  showDropDown = () => {
+    this.setState(({
+      showDropDown: true
+    }))
   }
 
   handleChange = (e) => {
-    e.preventDefault()
     this.setState({
       query: this.search.value
     }, () => {
       if (this.state.query) {
+        this.showDropDown()
         this.getResults()
       } else if (!this.state.query) {
-        this.clearResults()
+        this.hideDropdown()
       }
     })
   }
@@ -54,12 +65,10 @@ class Welcome extends Component {
           />
           <button>Go</button>
         </form>
-        <ul>
-          {output}
-        </ul>
+        <Options show={this.state.showDropDown} options={output} />
       </div>
     )
   }
 }
 
-export default Welcome
+export default Search

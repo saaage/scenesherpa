@@ -1,7 +1,7 @@
 import React from 'react'
-import Welcome from 'components/Welcome'
+import Search from 'containers/Search'
 
 const App = () =>
-  <Welcome />
+  <Search />
 
 export default App
