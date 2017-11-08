@@ -15,6 +15,10 @@
     "settings": {
         "ecmascript": 6,
         "jsx": true,
-        "import/resolver": "webpack"
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.config.js"
+            }
+        }
     }
 }

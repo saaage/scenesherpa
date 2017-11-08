@@ -31,7 +31,7 @@ class Search extends Component {
     }))
   }
 
-  handleChange = (e) => {
+  handleChange = () => {
     this.setState({
       query: this.search.value
     }, () => {
