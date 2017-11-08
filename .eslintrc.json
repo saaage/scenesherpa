@@ -16,8 +16,14 @@
         "ecmascript": 6,
         "jsx": true,
         "import/resolver": {
+            "node": {
+                "moduleDirectory": [
+                    "node_modules",
+                    "src"
+                ]
+            },
             "webpack": {
-                "config": "webpack.config.js"
+                "config": "./webpack.config.js"
             }
         }
     }
