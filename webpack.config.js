@@ -16,6 +16,7 @@ module.exports = (env) => {
       compress: true,
       historyApiFallback: true,
       hot: true,
+      open: true,
       port: 9000,
       stats: 'minimal'
     },
