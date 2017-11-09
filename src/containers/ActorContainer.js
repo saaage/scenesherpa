@@ -5,11 +5,11 @@ import Actor from 'components/Actor'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
-const POSTER_PATH = 'http//image.tmdb.org/t/p/w154'
 
 class ActorContainer extends Component {
   state = {
-    actor: {}
+    actor: {},
+    images: JSON.parse(localStorage.getItem('images'))
   }
 
   componentDidMount() {
@@ -18,11 +18,11 @@ class ActorContainer extends Component {
       .then(({ data }) => this.setState(({ actor: data })))
       .catch(e => console.log(e))
   }
+
   render() {
     return (
       <div>
-        <h1>Actor Container</h1>
-        <Actor {...this.state.actor} />
+        <Actor {...this.state} />
       </div>
     )
   }
