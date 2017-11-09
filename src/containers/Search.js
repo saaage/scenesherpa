@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import Options from 'components/Options'
+import OptionsList from 'components/OptionsList'
+import Option from 'components/Option'
 
 const { API_KEY } = process.env
 const API_URL = 'http://api.themoviedb.org/3'
@@ -17,6 +18,10 @@ class Search extends Component {
     axios.get(`${API_URL}/search/multi?api_key=${API_KEY}&query=${this.state.query}&page=1`)
       .then(({ data }) => this.setState(({ results: data.results })))
       .catch(e => console.log(e))
+  }
+
+  reminder = () => {
+    console.log('make a results page')
   }
 
   hideDropdown = () => {
@@ -49,8 +54,11 @@ class Search extends Component {
   render() {
     const { results } = this.state
 
-    const output = results.map(obj => (
-      <p key={obj.id}>{obj.title}</p>
+    const options = results.map(obj => (
+      <Option
+        {...obj}
+        key={obj.id}
+      />
     ))
 
     return (
@@ -63,9 +71,9 @@ class Search extends Component {
             onChange={this.handleChange}
             placeholder="Search for..."
           />
-          <button>Go</button>
+          <button onClick={this.reminder}>Go</button>
         </form>
-        <Options show={this.state.showDropDown} options={output} />
+        <OptionsList show={this.state.showDropDown} options={options} />
       </div>
     )
   }

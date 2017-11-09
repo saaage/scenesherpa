@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Actor = () =>
-  <h2>Will Ferrel Actor Page</h2>
+const Actor = () => <h3>Hello, from static Actor component</h3>
+
 
 export default Actor
