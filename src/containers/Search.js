@@ -11,7 +11,7 @@ class Search extends Component {
   state = {
     query: '',
     results: [],
-    showDropDown: false
+    showDropdown: false
   }
 
   getResults = () => {
@@ -26,13 +26,13 @@ class Search extends Component {
 
   hideDropdown = () => {
     this.setState(({
-      showDropDown: false
+      showDropdown: false
     }))
   }
 
-  showDropDown = () => {
+  showDropdown = () => {
     this.setState(({
-      showDropDown: true
+      showDropdown: true
     }))
   }
 
@@ -41,7 +41,7 @@ class Search extends Component {
       query: this.search.value
     }, () => {
       if (this.state.query) {
-        this.showDropDown()
+        this.showDropdown()
         this.getResults()
       } else if (!this.state.query) {
         this.hideDropdown()
@@ -73,7 +73,7 @@ class Search extends Component {
           />
           <button onClick={this.reminder}>Go</button>
         </form>
-        <OptionsList show={this.state.showDropDown} options={options} />
+        <OptionsList show={this.state.showDropdown} options={options} />
       </div>
     )
   }
