@@ -1,16 +1,17 @@
 import React from 'react'
 
-const Actor = ({actor, images}) => {
+const Actor = (props) => {
   // if our api call was sucessful render dynamic HTML, if not return null
-  if (actor.profile_path) {
+  const {profile, images, movie, tv} = props
+  if (profile.profile_path) {
     return (
       <div>
         <img
-          src={`${images.base_url}${images.profile_sizes[1]}${actor.profile_path}`}
-          alt={actor.name}
+          src={`${images.base_url}${images.profile_sizes[1]}${profile.profile_path}`}
+          alt={profile.name}
         />
-        <h2>{actor.name}</h2>
-        <p>{actor.biography}</p>
+        <h2>{profile.name}</h2>
+        <p>{profile.biography}</p>
       </div>
     )
   }

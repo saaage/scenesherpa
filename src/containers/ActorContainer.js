@@ -8,23 +8,35 @@ const API_URL = 'https://api.themoviedb.org/3'
 
 class ActorContainer extends Component {
   state = {
-    actor: {},
-    images: JSON.parse(localStorage.getItem('images'))
+    id: this.props.match.params.id,
+    images: JSON.parse(localStorage.getItem('images')),
+    profile: {},
+    movies: {},
+    tv: {},
+    isLoading: true
   }
 
   componentDidMount() {
-    axios.get(`${API_URL}/person/${this.props.match
-      .params.id}?api_key=${API_KEY}&language=en-US`)
-      .then(({ data }) => this.setState(({ actor: data })))
-      .catch(e => console.log(e))
+    this.getDetails()
+  }
+
+  getDetails = async () => {
+    const profile = await axios.get(`${API_URL}/person/${this.state.id}?api_key=${API_KEY}&language=en-US`)
+    const movies = await axios.get(`${API_URL}/person/${this.state.id}/movie_credits?api_key=${API_KEY}&language=en-us`)
+    const tv = await axios.get(`${API_URL}/person/${this.state.id}/tv_credits?api_key=${API_KEY}&language=en-US`)
+    this.setState(({
+      profile: profile.data,
+      movies: movies.data,
+      tv: tv.data,
+      isLoading: false
+    }))
   }
 
   render() {
-    return (
-      <div>
-        <Actor {...this.state} />
-      </div>
-    )
+    if (this.state.isLoading) {
+      return <h1>loading!</h1>
+    }
+    return <Actor {...this.state} />
   }
 }
 
