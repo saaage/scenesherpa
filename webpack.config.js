@@ -20,7 +20,7 @@ module.exports = (env) => {
       port: 9000,
       stats: 'minimal'
     },
-    entry: './index.js',
+    entry: ['babel-polyfill', './index.js'],
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist')
