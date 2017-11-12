@@ -15,6 +15,9 @@ class Biography extends Component {
     this.setState(({
       collapse: true
     }))
+    window.scrollTo(0, 480)
+    // when bio collapses the window scrolls to position where the first media item at the top of
+    //  the screen
   }
 
   render() {
