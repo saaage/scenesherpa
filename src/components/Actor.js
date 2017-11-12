@@ -3,6 +3,7 @@ import diffInYears from 'date-fns/difference_in_calendar_years'
 import formatDate from 'date-fns/format'
 
 import Biography from 'components/Biography'
+import MovieCredits from 'containers/MovieCredits'
 
 const Actor = (props) => {
   const {profile, images, movie, tv} = props
@@ -23,6 +24,7 @@ const Actor = (props) => {
         <p>Born: {formatDate(bDay, 'MMMM DD, YYYY')}</p>
         <p>Hometown: {profile.place_of_birth}</p>
         <Biography bio={profile.biography} />
+        <MovieCredits id={props.id} />
       </div>
     )
   }
