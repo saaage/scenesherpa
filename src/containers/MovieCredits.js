@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import styled from 'styled-components'
 
 import MovieListItem from 'components/MovieListItem'
 import ScreenSizedDiv from 'styled/ScreenSizedDiv'
@@ -37,8 +36,13 @@ class MovieCredits extends Component {
         </ScreenSizedDiv>
       )
     }
+    const ids = [] // will be used to track unique id values before we create a new MovieListItem
     const credits = this.state.credits.cast.map((m) => {
-      return <MovieListItem key={m.id} {...m} />
+      if (ids.indexOf(m.id) === -1) {
+        ids.push(m.id)
+        return <MovieListItem key={m.id} {...m} />
+      }
+      return null
     })
     return <MediaList>{credits}</MediaList>
   }

@@ -36,8 +36,13 @@ class TVCredits extends Component {
         </ScreenSizedDiv>
       )
     }
+    const ids = [] // will be used to track unique id values before we create a new TVListItem
     const credits = this.state.credits.cast.map((t) => {
-      return <TVListItem key={t.id} {...t} />
+      if (ids.indexOf(t.id) === -1) {
+        ids.push(t.id)
+        return <TVListItem key={t.id} {...t} />
+      }
+      return null
     })
     return <MediaList>{credits}</MediaList>
   }
