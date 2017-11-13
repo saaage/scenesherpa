@@ -4,7 +4,7 @@ Scene Sherpa is an application that allows users to search for Movies, Actors, a
 
 ## Getting Started
 
-These instructions will get a copy of the project up and running on your local machine.
+These instructions will get a copy of the project running on your local machine.
 
 ### Prerequisites
 
