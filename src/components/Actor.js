@@ -5,12 +5,14 @@ import formatDate from 'date-fns/format'
 import ActorMedia from 'containers/ActorMedia'
 import Biography from 'components/Biography'
 
-const Actor = (props) =>  {
+const Actor = (props) => {
   const {
     profile, images, movie, tv
   } = props
   const bDay = new Date(profile.birthday)
-  const age = diffInYears(new Date(), bDay)
+  const age = profile.deathday == null ?
+    diffInYears(new Date(), bDay) :
+    diffInYears(new Date(profile.deathday), bDay)
 
   if (profile.profile_path) {
     // The Actor component will only be rendered if ActorContainer.isLoading == false, however we
