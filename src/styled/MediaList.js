@@ -5,6 +5,7 @@ const MediaList = styled.ul`
   padding-left: 0px;
   li {
     display: inline-block;
+  }
 `
 
 export default MediaList
