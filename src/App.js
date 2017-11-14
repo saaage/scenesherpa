@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 import axios from 'axios'
 
 import MovieContainer from 'containers/movie/MovieContainer'
@@ -33,12 +33,15 @@ class App extends Component {
 
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={Search} />
-        <Route path="/actor/:id" component={ActorContainer} />
-        <Route path="/movie/:id" component={MovieContainer} />
-        <Route path="/tv/:id" component={TVContainer} />
-      </Switch>
+      <div>
+        <Link to="/" >Home</Link>
+        <Switch>
+          <Route exact path="/" component={Search} />
+          <Route path="/actor/:id" component={ActorContainer} />
+          <Route path="/movie/:id" component={MovieContainer} />
+          <Route path="/tv/:id" component={TVContainer} />
+        </Switch>
+      </div>
     )
   }
 }
