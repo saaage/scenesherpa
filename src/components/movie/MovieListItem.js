@@ -12,7 +12,7 @@ const MovieListItem = (props) => {
       <StyledListItem>
         <Link to={`/movie/${props.id}`}>
           <img
-            src={`${images.base_url}${images.poster_sizes[1]}${props.poster_path}`}
+            src={`${images.base_url}${images.poster_sizes[4]}${props.poster_path}`}
             alt={props.title}
           />
         </Link>
@@ -35,6 +35,10 @@ const StyledListItem = styled.li`
   div {
     height: 258px;
     overflow: hidden;
+  }
+  img {
+    width: 154px;
+    overflow:hidden;
   }
   p , b {
     display: block;

@@ -2,6 +2,8 @@
 
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
 import List from 'styled/List'
 
 const Cast = (props) => {
@@ -14,10 +16,12 @@ const Cast = (props) => {
       return (
         <Character key={a.id}>
           <div>
-            <img
-              src={`${images.base_url}${images.profile_sizes[1]}${a.profile_path}`}
-              alt={a.name}
-            />
+            <Link to={`/actor/${a.id}`}>
+              <img
+                src={`${images.base_url}${images.profile_sizes[3]}${a.profile_path}`}
+                alt={a.name}
+              />
+            </Link>
           </div>
           <p>{a.name}: </p>
           <b><em>{a.character}</em></b>
@@ -48,7 +52,7 @@ const Character = styled.li`
     overflow: hidden;
   }
   img {
-    width: 135px;
+    height: 231px;
   }
   margin-bottom: 8px;
   margin-left: 8px;

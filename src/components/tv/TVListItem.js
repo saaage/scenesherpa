@@ -11,7 +11,7 @@ const TVListItem = (props) => {
       <StyledListItem>
         <div>
           <img
-            src={`${images.base_url}${images.poster_sizes[1]}${props.poster_path}`}
+            src={`${images.base_url}${images.poster_sizes[4]}${props.poster_path}`}
             alt={props.name}
           />
         </div>
@@ -33,6 +33,10 @@ const StyledListItem = styled.li`
   height: 372px;
   div {
     height: 258px;
+    overflow: hidden;
+  }
+  img {
+    width: 154px;
     overflow: hidden;
   }
   p , b {

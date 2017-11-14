@@ -15,7 +15,7 @@ const Crew = (props) => {
           <CrewMember key={a.id}>
             <div>
               <img
-                src={`${images.base_url}${images.profile_sizes[1]}${a.profile_path}`}
+                src={`${images.base_url}${images.profile_sizes[3]}${a.profile_path}`}
                 alt={a.name}
               />
             </div>
@@ -49,7 +49,7 @@ const CrewMember = styled.li`
     overflow: hidden;
   }
   img {
-    width: 135px;
+    height: 203px;
   }
   margin-bottom: 8px;
   margin-left: 8px;
