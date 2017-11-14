@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import OptionsList from 'components/welcome/OptionsList'
 import Option from 'components/welcome/Option'
+import Input from 'styled/Input'
 
 const { API_KEY } = process.env
 const API_URL = 'http://api.themoviedb.org/3'
@@ -53,23 +54,29 @@ class Search extends Component {
 
   render() {
     const { results } = this.state
-
-    const options = results.map(obj => (
-      <Option
-        {...obj}
-        key={obj.id}
-      />
-    ))
+    const ids = []
+    const options = results.map((obj) => {
+      if (ids.indexOf(obj.id) === -1) {
+        ids.push(obj.id)
+        return (
+          <Option
+            {...obj}
+            key={obj.id}
+          />
+        )
+      }
+      return null
+    })
 
     return (
       <div>
-        <h1>Welcome to Scene Sherpa</h1>
+        <h1>Scene Sherpa</h1>
         <form onSubmit={this.handleSubmit}>
-          <input
+          <Input
             type="text"
-            ref={input => this.search = input}
+            innerRef={input => this.search = input}
             onChange={this.handleChange}
-            placeholder="Search for..."
+            placeholder="Find movie, tv show, actor/actress..."
           />
           <button onClick={this.reminder}>Go</button>
         </form>

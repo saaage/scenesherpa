@@ -7,28 +7,32 @@ import List from 'styled/List'
 const Cast = (props) => {
   const { cast } = props
   const images = JSON.parse(localStorage.getItem('images'))
+  const ids = []
   const actors = cast.map((a) => {
-    if (a.profile_path) {
+    if (a.profile_path && ids.indexOf(a.id) === -1) {
+      ids.push(a.id)
       return (
-          <Character key={a.id}>
-            <div>
-              <img
-                src={`${images.base_url}${images.profile_sizes[1]}${a.profile_path}`}
-                alt={a.name}
-              />
-            </div>
-            <p>{a.name}: </p>
-            <b><em>{a.character}</em></b>
-          </Character>
+        <Character key={a.id}>
+          <div>
+            <img
+              src={`${images.base_url}${images.profile_sizes[1]}${a.profile_path}`}
+              alt={a.name}
+            />
+          </div>
+          <p>{a.name}: </p>
+          <b><em>{a.character}</em></b>
+        </Character>
+      )
+    } else if (ids.indexOf(a.id) === -1) {
+      return (
+        <Character key={a.id}>
+          <div />
+          <p>{a.name}</p>
+          <em>{a.character}</em>
+        </Character>
       )
     }
-    return (
-      <Character key={a.id}>
-        <div />
-        <p>{a.name}</p>
-        <em>{a.character}</em>
-      </Character>
-    )
+    return null
   })
   return (
     <List>{actors}</List>

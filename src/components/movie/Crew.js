@@ -7,8 +7,10 @@ import List from 'styled/List'
 const Crew = (props) => {
   const { crew } = props
   const images = JSON.parse(localStorage.getItem('images'))
+  const ids = []
   const staff = crew.map((a) => {
-    if (a.profile_path) {
+    if (a.profile_path && ids.indexOf(a.id) === -1) {
+      ids.push(a.id)
       return (
           <CrewMember key={a.id}>
             <div>
@@ -21,14 +23,17 @@ const Crew = (props) => {
             <em>{a.department}</em>
           </CrewMember>
       )
+    } else if (ids.indexOf(a.id) === -1) {
+      ids.push(a.id)
+      return (
+        <CrewMember key={a.id}>
+          <div />
+          <p>{a.name}</p>
+          <em>{a.character}</em>
+        </CrewMember>
+      )
     }
-    return (
-      <CrewMember key={a.id}>
-        <div />
-        <p>{a.name}</p>
-        <em>{a.character}</em>
-      </CrewMember>
-    )
+    return null
   })
   return (
     <List>{staff}</List>
