@@ -4,6 +4,7 @@ import formatDate from 'date-fns/format'
 
 import ActorMedia from 'containers/actor/ActorMedia'
 import Biography from 'components/actor/Biography'
+import SubjectImage from 'styled/SubjectImage'
 
 const Actor = (props) => {
   const {
@@ -20,10 +21,12 @@ const Actor = (props) => {
     //  we need
     return (
       <div>
-        <img
-          src={`${config.base_url}${config.profile_sizes[1]}${profile.profile_path}`}
-          alt={profile.name}
-        />
+        <SubjectImage>
+          <img
+            src={`${config.base_url}${config.profile_sizes[2]}${profile.profile_path}`}
+            alt={profile.name}
+          />
+        </SubjectImage>
         <h2>{profile.name}</h2>
         <h3>{age} years old</h3>
         <p>Born: {formatDate(bDay, 'MMMM DD, YYYY')}</p>
@@ -33,7 +36,7 @@ const Actor = (props) => {
       </div>
     )
   }
-  return null
+  return <h2>presentation loading...</h2>
 }
 
 export default Actor
