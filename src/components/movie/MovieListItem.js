@@ -3,18 +3,19 @@
 import React from 'react'
 import getYear from 'date-fns/get_year'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const MovieListItem = (props) => {
   const images = JSON.parse(localStorage.getItem('images'))
   if (props.poster_path) {
     return (
       <StyledListItem>
-        <div>
+        <Link to={`/movie/${props.id}`}>
           <img
             src={`${images.base_url}${images.poster_sizes[1]}${props.poster_path}`}
             alt={props.title}
           />
-        </div>
+        </Link>
         <p>{props.title} ({getYear(props.release_date)})</p>
         <b><em>{props.character ? props.character : null}</em></b>
       </StyledListItem>
