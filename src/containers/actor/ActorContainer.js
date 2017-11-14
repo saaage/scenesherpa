@@ -36,7 +36,7 @@ class ActorContainer extends Component {
 
   render() {
     if (this.state.isLoading) {
-      return <h1>loading!</h1>
+      return <h1>container making API call...</h1>
     }
     return <Actor {...this.state} />
   }

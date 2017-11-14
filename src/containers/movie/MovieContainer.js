@@ -39,7 +39,7 @@ class MovieContainer extends Component {
 
   render() {
     if (this.state.loading) {
-      return <h1>loading!</h1>
+      return <h1>container making api call...</h1>
     }
     return <Movie {...this.state} />
   }

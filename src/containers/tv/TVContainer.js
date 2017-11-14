@@ -45,11 +45,10 @@ class TVContainer extends Component {
   }
   render() {
     if (this.state.isLoading) {
-      return <h1>Loading TV Show info...</h1>
+      return <h1>container making API call...</h1>
     }
     return (
       <div>
-        <h1>Content Loaded</h1>
         <TVShow {...this.state} />
       </div>
     )
