@@ -2,12 +2,12 @@ import React from 'react'
 import diffInYears from 'date-fns/difference_in_calendar_years'
 import formatDate from 'date-fns/format'
 
-import ActorMedia from 'containers/ActorMedia'
-import Biography from 'components/Biography'
+import ActorMedia from 'containers/actor/ActorMedia'
+import Biography from 'components/actor/Biography'
 
 const Actor = (props) => {
   const {
-    profile, images, movie, tv
+    profile, config, movie, tv
   } = props
   const bDay = new Date(profile.birthday)
   const age = profile.deathday == null ?
@@ -21,7 +21,7 @@ const Actor = (props) => {
     return (
       <div>
         <img
-          src={`${images.base_url}${images.profile_sizes[1]}${profile.profile_path}`}
+          src={`${config.base_url}${config.profile_sizes[1]}${profile.profile_path}`}
           alt={profile.name}
         />
         <h2>{profile.name}</h2>

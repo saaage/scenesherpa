@@ -15,9 +15,11 @@ class Biography extends Component {
     this.setState(({
       collapse: true
     }))
-    window.scrollTo(0, 480)
-    // when bio collapses the window scrolls to position where the first media item at the top of
-    //  the screen
+    if (window.pageYOffset > 390) {
+      window.scrollTo(0, 480)
+      // when bio collapses the window scrolls to position where the first media item at the top of
+      //  the screen
+    }
   }
 
   render() {
@@ -26,14 +28,14 @@ class Biography extends Component {
       return (
         <div>
           <p>{preview}</p>
-          <button onClick={this.expandBio}>Full Bio</button>
+          <button onClick={this.expandBio}>Show Full Bio</button>
         </div>
       )
     }
     return (
       <div>
         <p>{this.props.bio}</p>
-        <button onClick={this.collapseBio}>Close Bio</button>
+        <button onClick={this.collapseBio}>Collapse Bio</button>
       </div>
     )
   }

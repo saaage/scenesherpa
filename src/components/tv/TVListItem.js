@@ -1,3 +1,5 @@
+// displays a TVListItem for a given actor
+
 import React from 'react'
 import getYear from 'date-fns/get_year'
 import styled from 'styled-components'

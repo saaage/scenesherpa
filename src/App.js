@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 
-import MovieContainer from 'containers/MovieContainer'
-import TVContainer from 'containers/TVContainer'
-import Search from 'containers/Search'
-import ActorContainer from 'containers/ActorContainer'
+import MovieContainer from 'containers/movie/MovieContainer'
+import TVContainer from 'containers/tv/TVContainer'
+import Search from 'containers/welcome/Search'
+import ActorContainer from 'containers/actor/ActorContainer'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'

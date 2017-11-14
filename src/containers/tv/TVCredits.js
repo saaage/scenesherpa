@@ -1,7 +1,9 @@
+// gets tv credits for a given actor id
+
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import TVListItem from 'components/TVListItem'
+import TVListItem from 'components/tv/TVListItem'
 import ScreenSizedDiv from 'styled/ScreenSizedDiv'
 import MediaList from 'styled/MediaList'
 

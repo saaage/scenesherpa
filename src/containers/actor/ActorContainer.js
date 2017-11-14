@@ -1,7 +1,9 @@
+// container for /actor/:id
+
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import Actor from 'components/Actor'
+import Actor from 'components/actor/Actor'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
@@ -9,7 +11,7 @@ const API_URL = 'https://api.themoviedb.org/3'
 class ActorContainer extends Component {
   state = {
     id: this.props.match.params.id,
-    images: JSON.parse(localStorage.getItem('images')),
+    config: JSON.parse(localStorage.getItem('images')),
     profile: {},
     movies: {},
     tv: {},
@@ -17,10 +19,10 @@ class ActorContainer extends Component {
   }
 
   componentDidMount() {
-    this.getDetails()
+    this.getInfo()
   }
 
-  getDetails = async () => {
+  getInfo = async () => {
     const profile = await axios.get(`${API_URL}/person/${this.state.id}?api_key=${API_KEY}&language=en-US`)
     const movies = await axios.get(`${API_URL}/person/${this.state.id}/movie_credits?api_key=${API_KEY}&language=en-us`)
     const tv = await axios.get(`${API_URL}/person/${this.state.id}/tv_credits?api_key=${API_KEY}&language=en-US`)

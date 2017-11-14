@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import OptionsList from 'components/OptionsList'
-import Option from 'components/Option'
+import OptionsList from 'components/welcome/OptionsList'
+import Option from 'components/welcome/Option'
 
 const { API_KEY } = process.env
 const API_URL = 'http://api.themoviedb.org/3'

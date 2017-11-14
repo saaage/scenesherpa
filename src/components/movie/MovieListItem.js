@@ -1,3 +1,5 @@
+// renders a movieListItem for a given actor
+
 import React from 'react'
 import getYear from 'date-fns/get_year'
 import styled from 'styled-components'
@@ -28,7 +30,7 @@ const StyledListItem = styled.li`
   margin-bottom: 8px;
   margin-left: 8px;
   margin-right: 8px;
-  height: 372px;
+  height: 350px;
   div {
     height: 258px;
     overflow: hidden;

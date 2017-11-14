@@ -1,7 +1,9 @@
+// return movie credits for a given actor id
+
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import MovieListItem from 'components/MovieListItem'
+import MovieListItem from 'components/movie/MovieListItem'
 import ScreenSizedDiv from 'styled/ScreenSizedDiv'
 import MediaList from 'styled/MediaList'
 
