@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react'
 
-import Cast from 'components/movie/Cast'
-import Crew from 'components/movie/Crew'
+import Cast from 'components/people/Cast'
+import Crew from 'components/people/Crew'
 import ScreenSizedDiv from 'styled/ScreenSizedDiv'
 
 class CastCrew extends Component {
