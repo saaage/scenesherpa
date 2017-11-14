@@ -1,53 +1,26 @@
 // return movie credits for a given actor id
 
-import React, { Component } from 'react'
-import axios from 'axios'
+import React from 'react'
 
 import MovieListItem from 'components/movie/MovieListItem'
-import ScreenSizedDiv from 'styled/ScreenSizedDiv'
 import MediaList from 'styled/MediaList'
+import ScreenSizedDiv from 'styled/ScreenSizedDiv'
 
-const { API_KEY } = process.env
-const API_URL = 'https://api.themoviedb.org/3'
-
-class MovieCredits extends Component {
-  state = {
-    isLoading: true,
-    credits: {}
-  }
-
-  componentDidMount() {
-    this.getCredits()
-  }
-
-  getCredits = () => {
-    axios.get(`${API_URL}/person/${this.props.id}/movie_credits?api_key=${API_KEY}&language=en-US`)
-      .then(({ data }) => {
-        this.setState({
-          credits: data,
-          isLoading: false
-        })
-      })
-  }
-
-  render() {
-    if (this.state.isLoading) {
-      return (
-        <ScreenSizedDiv>
-          <h3>Loading movie credits...</h3>
-        </ScreenSizedDiv>
-      )
+const MovieCredits = (props) => {
+  const { cast } = props.movies
+  const ids = [] // will be used to track unique id values before we create a new MovieListItem
+  const credits = cast.map((m) => {
+    if (ids.indexOf(m.id) === -1) {
+      ids.push(m.id)
+      return <MovieListItem key={m.id} {...m} />
     }
-    const ids = [] // will be used to track unique id values before we create a new MovieListItem
-    const credits = this.state.credits.cast.map((m) => {
-      if (ids.indexOf(m.id) === -1) {
-        ids.push(m.id)
-        return <MovieListItem key={m.id} {...m} />
-      }
-      return null
-    })
-    return <MediaList>{credits}</MediaList>
-  }
+    return null
+  })
+  return (
+    <ScreenSizedDiv>
+      <MediaList>{credits}</MediaList>
+    </ScreenSizedDiv>
+  )
 }
 
 export default MovieCredits

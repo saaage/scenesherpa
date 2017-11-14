@@ -30,8 +30,8 @@ class ActorMedia extends Component {
         <button onClick={this.selectTV}>TV Shows</button>
         {
           this.state.mediaSelected === 'movies' ?
-            <MovieCredits id={this.props.id} /> :
-            <TVCredits id={this.props.id} />
+            <MovieCredits id={this.props.id} movies={this.props.movies} /> :
+            <TVCredits id={this.props.id} tv={this.props.tv} />
         }
       </div>
     )

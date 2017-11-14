@@ -7,7 +7,7 @@ import Biography from 'components/actor/Biography'
 
 const Actor = (props) => {
   const {
-    profile, config, movie, tv
+    profile, config, movies, tv
   } = props
   const bDay = new Date(profile.birthday)
   const age = profile.deathday == null ?
@@ -29,7 +29,7 @@ const Actor = (props) => {
         <p>Born: {formatDate(bDay, 'MMMM DD, YYYY')}</p>
         <p>Hometown: {profile.place_of_birth}</p>
         <Biography bio={profile.biography} />
-        <ActorMedia id={props.id}/>
+        <ActorMedia id={props.id} tv={tv} movies={movies}/>
       </div>
     )
   }
