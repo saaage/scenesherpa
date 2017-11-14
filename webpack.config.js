@@ -16,14 +16,17 @@ module.exports = (env) => {
       compress: true,
       historyApiFallback: true,
       hot: true,
+      host: '0.0.0.0',
+      disableHostCheck: true,
       open: true,
       port: 9000,
       stats: 'minimal'
     },
-    entry: ['babel-polyfill', './index.js'],
+    entry: ['babel-polyfill', 'index.js'],
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, 'dist')
+      path: path.resolve(__dirname, 'dist'),
+      publicPath: '/'
     },
     module: {
       rules: [
