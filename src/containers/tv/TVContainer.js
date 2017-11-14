@@ -1,16 +1,56 @@
 // container for /tv/:id
 
 import React, { Component } from 'react'
+import axios from 'axios'
+
+import TVShow from 'components/tv/TVShow'
+
+const { API_KEY } = process.env
+const API_URL = 'https://api.themoviedb.org/3'
 
 class TVContainer extends Component {
   state = {
-    default: 'abc'
+    isLoading: true,
+    id: this.props.match.params.id,
+    details: {},
+    credits: {},
+    similar: {},
+    videos: {}
+  }
+
+  componentDidMount() {
+    this.getInfo()
+  }
+
+  getInfo = async () => {
+    const details =
+      await
+      axios.get(`${API_URL}/tv/${this.state.id}?api_key=${API_KEY}&language=en-US`)
+    const credits =
+      await
+      axios.get(`${API_URL}/tv/${this.state.id}/credits?api_key=${API_KEY}&language=en-US`)
+    const similar =
+      await
+      axios.get(`${API_URL}/tv/${this.state.id}/similar?api_key=${API_KEY}&language=en-US&page=1`)
+    const videos =
+      await
+      axios.get(`${API_URL}/tv/${this.state.id}/videos?api_key=${API_KEY}&language=en-US`)
+    this.setState(({
+      details: details.data,
+      credits: credits.data,
+      similar: similar.data,
+      videos: videos.data,
+      isLoading: false
+    }))
   }
   render() {
+    if (this.state.isLoading) {
+      return <h1>Loading TV Show info...</h1>
+    }
     return (
       <div>
-        <h1>TV Show Container</h1>
-        <h2>{this.props.match.params.id}</h2>
+        <h1>Content Loaded</h1>
+        <TVShow {...this.state} />
       </div>
     )
   }
