@@ -3,6 +3,7 @@
 import React from 'react'
 import getYear from 'date-fns/get_year'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const TVListItem = (props) => {
   const images = JSON.parse(localStorage.getItem('images'))
@@ -10,10 +11,13 @@ const TVListItem = (props) => {
     return (
       <StyledListItem>
         <div>
-          <img
-            src={`${images.base_url}${images.poster_sizes[4]}${props.poster_path}`}
-            alt={props.name}
-          />
+          <Link to={`/tv/${props.id}`}>
+            <img
+              src={`${images.base_url}${images.poster_sizes[4]}${props.poster_path}`}
+              alt={props.name}
+            />
+          </Link>
+    
         </div>
         <p>{props.name} ({getYear(props.first_air_date)})</p>
         <b><em>{props.character ? props.character : null}</em></b>
