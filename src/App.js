@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route, Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 import MovieContainer from 'containers/movie/MovieContainer'
 import TVContainer from 'containers/tv/TVContainer'
-import Search from 'containers/welcome/Search'
 import ActorContainer from 'containers/actor/ActorContainer'
+import Welcome from 'containers/welcome/Welcome'
+import Search from 'containers/Search'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
 
+@withRouter
 class App extends Component {
   componentDidMount() {
     const now = new Date()
@@ -34,9 +36,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Link to="/" >Home</Link>
+        { !(this.props.location.pathname === '/') && <Search />}
         <Switch>
-          <Route exact path="/" component={Search} />
+          <Route exact path="/" component={Welcome} />
           <Route path="/actor/:id" component={ActorContainer} />
           <Route path="/movie/:id" component={MovieContainer} />
           <Route path="/tv/:id" component={TVContainer} />
