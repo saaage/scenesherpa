@@ -2,9 +2,25 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const OptionsList = props =>
-  <DropDown show={props.show}>{props.options}</DropDown>
+import Option from 'components/welcome/Option'
 
+const OptionsList = (props) => {
+  const ids = []
+  const options = props.options.map((o) => {
+    if (ids.indexOf(o.id) === -1) {
+      ids.push(o.id)
+      return (
+        <Option
+          onClick={props.hide}
+          key={o.id}
+          {...o}
+        />
+      )
+    }
+    return null
+  })
+  return <DropDown show={props.show}>{options}</DropDown>
+}
 OptionsList.propTypes = {
   show: PropTypes.bool.isRequired
 }
