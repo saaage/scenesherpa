@@ -11,7 +11,7 @@ const OptionsList = (props) => {
       ids.push(o.id)
       return (
         <Option
-          onClick={props.hide}
+          hide={props.hide}
           key={o.id}
           {...o}
         />

@@ -28,6 +28,7 @@ class Search extends Component {
     this.setState(({
       showDropdown: false
     }))
+    this.search.value = ''
   }
 
   showDropdown = () => {
@@ -65,7 +66,7 @@ class Search extends Component {
             placeholder="Find movie, tv show, actor/actress..."
           />
           <button onClick={this.reminder}>Go</button>
-          <OptionsList show={this.state.showDropdown} options={results} />
+          <OptionsList show={this.state.showDropdown} hide={this.hideDropdown} options={results} />
         </form>
       </div>
     )
