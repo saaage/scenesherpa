@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 import OptionsList from 'components/welcome/OptionsList'
-import Option from 'components/welcome/Option'
 import Input from 'styled/Input'
 
 const { API_KEY } = process.env
@@ -21,8 +20,8 @@ class Search extends Component {
       .catch(e => console.log(e))
   }
 
-  reminder = () => {
-    console.log('make a results page')
+  testFunction = () => {
+    console.log('resize')
   }
 
   hideDropdown = () => {
@@ -50,27 +49,14 @@ class Search extends Component {
     })
   }
 
-  handleSubmit = e => e.preventDefault()
+  handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
   render() {
     const { results } = this.state
-    const ids = []
-    const options = results.map((obj) => {
-      if (ids.indexOf(obj.id) === -1) {
-        ids.push(obj.id)
-        return (
-          <Option
-            {...obj}
-            key={obj.id}
-          />
-        )
-      }
-      return null
-    })
-
     return (
       <div>
-        <h1>Scene Sherpa</h1>
         <form onSubmit={this.handleSubmit}>
           <Input
             type="text"
@@ -79,8 +65,8 @@ class Search extends Component {
             placeholder="Find movie, tv show, actor/actress..."
           />
           <button onClick={this.reminder}>Go</button>
+          <OptionsList show={this.state.showDropdown} options={results} />
         </form>
-        <OptionsList show={this.state.showDropdown} options={options} />
       </div>
     )
   }
