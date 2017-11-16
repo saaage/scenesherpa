@@ -15,7 +15,7 @@ const Actor = (props) => {
     diffInYears(new Date(), bDay) :
     diffInYears(new Date(profile.deathday), bDay)
 
-  if (profile.profile_path) {
+  if (profile.id) {
     // The Actor component will only be rendered if ActorContainer.isLoading == false, however we
     //  still read profile.profile_path to double check that props has been loaded with the info
     //  we need
