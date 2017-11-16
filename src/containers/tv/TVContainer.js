@@ -22,19 +22,23 @@ class TVContainer extends Component {
     this.getInfo()
   }
 
-  getInfo = async () => {
+  componentWillReceiveProps(nextProps) {
+    this.getInfo(nextProps.match.params.id)
+  }
+
+  getInfo = async (id = this.props.match.params.id) => {
     const details =
       await
-      axios.get(`${API_URL}/tv/${this.state.id}?api_key=${API_KEY}&language=en-US`)
+      axios.get(`${API_URL}/tv/${id}?api_key=${API_KEY}&language=en-US`)
     const credits =
       await
-      axios.get(`${API_URL}/tv/${this.state.id}/credits?api_key=${API_KEY}&language=en-US`)
+      axios.get(`${API_URL}/tv/${id}/credits?api_key=${API_KEY}&language=en-US`)
     const similar =
       await
-      axios.get(`${API_URL}/tv/${this.state.id}/similar?api_key=${API_KEY}&language=en-US&page=1`)
+      axios.get(`${API_URL}/tv/${id}/similar?api_key=${API_KEY}&language=en-US&page=1`)
     const videos =
       await
-      axios.get(`${API_URL}/tv/${this.state.id}/videos?api_key=${API_KEY}&language=en-US`)
+      axios.get(`${API_URL}/tv/${id}/videos?api_key=${API_KEY}&language=en-US`)
     this.setState(({
       details: details.data,
       credits: credits.data,
