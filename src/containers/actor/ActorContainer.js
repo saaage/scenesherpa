@@ -10,7 +10,6 @@ const API_URL = 'https://api.themoviedb.org/3'
 
 class ActorContainer extends Component {
   state = {
-    id: this.props.match.params.id,
     config: JSON.parse(localStorage.getItem('images')),
     profile: {},
     movies: {},
@@ -22,10 +21,14 @@ class ActorContainer extends Component {
     this.getInfo()
   }
 
-  getInfo = async () => {
-    const profile = await axios.get(`${API_URL}/person/${this.state.id}?api_key=${API_KEY}&language=en-US`)
-    const movies = await axios.get(`${API_URL}/person/${this.state.id}/movie_credits?api_key=${API_KEY}&language=en-us`)
-    const tv = await axios.get(`${API_URL}/person/${this.state.id}/tv_credits?api_key=${API_KEY}&language=en-US`)
+  componentWillReceiveProps(nextProps) {
+    this.getInfo(nextProps.match.params.id)
+  }
+
+  getInfo = async (id = this.props.match.params.id) => {
+    const profile = await axios.get(`${API_URL}/person/${id}?api_key=${API_KEY}&language=en-US`)
+    const movies = await axios.get(`${API_URL}/person/${id}/movie_credits?api_key=${API_KEY}&language=en-us`)
+    const tv = await axios.get(`${API_URL}/person/${id}/tv_credits?api_key=${API_KEY}&language=en-US`)
     this.setState(({
       profile: profile.data,
       movies: movies.data,
@@ -38,7 +41,12 @@ class ActorContainer extends Component {
     if (this.state.isLoading) {
       return <h1>container making API call...</h1>
     }
-    return <Actor {...this.state} />
+    return (
+      <div>
+        <Actor id={this.props.match.params.id} {...this.state} />
+      </div>
+
+    ) 
   }
 }
 
