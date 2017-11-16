@@ -66,7 +66,11 @@ class Search extends Component {
             placeholder="Find movie, tv show, actor/actress..."
           />
           <button onClick={this.reminder}>Go</button>
-          <OptionsList show={this.state.showDropdown} hide={this.hideDropdown} options={results} />
+          <OptionsList
+            show={this.state.showDropdown}
+            hide={this.hideDropdown}
+            options={results}
+          />
         </form>
       </div>
     )
