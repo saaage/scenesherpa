@@ -8,7 +8,6 @@ import ActorContainer from 'containers/actor/ActorContainer'
 import Welcome from 'containers/welcome/Welcome'
 import Search from 'containers/Search'
 import Nav from 'styled/Nav'
-import globalStyleSheet from 'styled/globalStyleSheet'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
@@ -38,7 +37,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <globalStyleSheet />
         { !(this.props.location.pathname === '/') && <Nav><Search /></Nav>}
         <Switch>
           <Route exact path="/" component={Welcome} />
