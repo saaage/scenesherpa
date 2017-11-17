@@ -28,6 +28,7 @@ const Cast = (props) => {
         </Character>
       )
     } else if (ids.indexOf(a.id) === -1) {
+      ids.push(a.id)
       return (
         <Character key={a.id}>
           <div />
