@@ -20,15 +20,12 @@ class Search extends Component {
       .catch(e => console.log(e))
   }
 
-  testFunction = () => {
-    console.log('resize')
-  }
-
   hideDropdown = () => {
     this.setState(({
       showDropdown: false
     }))
     this.search.value = ''
+    this.search.blur()
   }
 
   showDropdown = () => {
@@ -54,21 +51,26 @@ class Search extends Component {
     e.preventDefault()
   }
 
+  handleMouseDown = (e) => {
+    e.preventDefault()
+  }
+
   render() {
     const { results } = this.state
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} onBlur={this.hideDropdown}>
           <Input
             type="text"
             innerRef={input => this.search = input}
             onChange={this.handleChange}
             placeholder="Find movie, tv show, actor/actress..."
           />
-          <button onClick={this.reminder}>Go</button>
+          <button onMouseDown={this.handleMouseDown}>Go</button>
           <OptionsList
             show={this.state.showDropdown}
             hide={this.hideDropdown}
+            stopBlur={this.handleMouseDown}
             options={results}
           />
         </form>

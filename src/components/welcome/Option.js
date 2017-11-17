@@ -1,24 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 const Option = (props) => {
   if (props.media_type === 'person') {
     return (
-      <div onClick={props.hide}>
-        <Link to={`/actor/${props.id}`}>{props.name}</Link>
-      </div>
+      <Link to={`/actor/${props.id}`}>
+        <button onMouseDown={props.stopBlur} onClick={props.hide}>
+          {props.name}
+        </button>
+      </Link>
     )
   } else if (props.media_type === 'tv') {
     return (
-      <div onClick={props.hide}>
-        <Link to={`/tv/${props.id}`}>{props.name}</Link>
-      </div>
+      <Link to={`/tv/${props.id}`}>
+        <button onMouseDown={props.stopBlur} onClick={props.hide}>
+          {props.name}
+        </button>
+      </Link>
     )
   } else if (props.media_type === 'movie') {
     return (
-      <div onClick={props.hide}>
-        <Link to={`/movie/${props.id}`}>{props.title}</Link>
-      </div>
+      <Link to={`/movie/${props.id}`}>
+        <button onMouseDown={props.stopBlur} onClick={props.hide}>
+          {props.title}
+        </button>
+      </Link>
     )
   }
   return 'X'
