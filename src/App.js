@@ -9,6 +9,8 @@ import Welcome from 'containers/welcome/Welcome'
 import Search from 'containers/Search'
 import Nav from 'styled/Nav'
 
+require('favicon.svg')
+
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
 
