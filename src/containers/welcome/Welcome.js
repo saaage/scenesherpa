@@ -1,7 +1,7 @@
 import React from 'react'
 import Search from 'containers/Search'
 
-import SherpaLogo from 'images/SherpaLogo'
+import SherpaLogo from 'components/SherpaLogo'
 
 const Welcome = () => (
   <div>
