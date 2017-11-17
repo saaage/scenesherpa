@@ -11,10 +11,12 @@ const MovieListItem = (props) => {
     return (
       <StyledListItem>
         <Link to={`/movie/${props.id}`}>
-          <img
-            src={`${images.base_url}${images.poster_sizes[4]}${props.poster_path}`}
-            alt={props.title}
-          />
+          <div>
+            <img
+              src={`${images.base_url}${images.poster_sizes[4]}${props.poster_path}`}
+              alt={props.title}
+            />
+          </div>
         </Link>
         <p>{props.title} ({getYear(props.release_date)})</p>
         <b><em>{props.character ? props.character : null}</em></b>
@@ -28,31 +30,26 @@ const StyledListItem = styled.li`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: #4F4F4F;
   font-family: Alegreya;
+  height: 370px;
   margin-bottom: 8px;
   margin-left: 8px;
   margin-right: 8px;
-  height: 350px;
+  width: 154px;
   div {
-    height: 258px;
-    overflow: hidden;
+    height: 282px;
   }
   img {
     width: 154px;
-    overflow:hidden;
   }
   p , b {
     display: block;
-    max-width: 154px;
-    min-height: 44px;
-    max-height: 44px;
-    overflow: hidden;
-    padding: 0px;
+    width: 154px;
+    height: 2.5em;
+    padding: 2px;
     margin: 0px;
-  }
-  b {
-    margin-top: auto;
-    margin-bottom: auto;
+    overflow: hidden;
   }
   overflow: hidden;
+  vertical-align: top;
 `
 export default MovieListItem

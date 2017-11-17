@@ -46,7 +46,15 @@ const Cast = (props) => {
 
 const Character = styled.li`
   box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  color: #4F4F4F;
+  font-family: Alegreya;
   display: inline-block;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  overflow: hidden;
+  vertical-align: top;
+  width: 135px;
   div {
     height: 203px;
     margin-bottom: 6px;
@@ -55,18 +63,13 @@ const Character = styled.li`
   img {
     height: 231px;
   }
-  margin-bottom: 8px;
-  margin-left: 8px;
-  margin-right: 8px;
   p, em {
     margin: 0px;
     display: block;
     padding: 0px;
     width: 133px;
-    height: 36px;
+    height: 46px;
   }
-  overflow: hidden;
-  width: 135px;
 `
 
 export default Cast

@@ -43,6 +43,9 @@ const Crew = (props) => {
 const CrewMember = styled.li`
   box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
   display: inline-block;
+  overflow: hidden;
+  width: 135px;
+  vertical-align: top;
   div {
     height: 203px;
     margin-bottom: 6px;
@@ -59,10 +62,8 @@ const CrewMember = styled.li`
     display: block;
     padding: 0px;
     width: 133px;
-    height: 36px;
+    height: 46px;
   }
-  overflow: hidden;
-  width: 135px;
 `
 
 export default Crew

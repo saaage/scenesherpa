@@ -2,6 +2,7 @@ import React from 'react'
 import CastCrew from 'containers/people/CastCrew'
 import Backdrop from 'styled/Backdrop'
 import SubjectImage from 'styled/SubjectImage'
+import styled from 'styled-components'
 
 const TVShow = (props) => {
   const images = JSON.parse(localStorage.getItem('images'))
@@ -9,7 +10,7 @@ const TVShow = (props) => {
     id, credits, details, similar, videos
   } = props
   return (
-    <div>
+    <TVDiv>
       <Backdrop>
         <img
           src={`${images.base_url}${images.backdrop_sizes[3]}${details.backdrop_path}`}
@@ -25,8 +26,12 @@ const TVShow = (props) => {
       <h2>{details.name}</h2>
       <p>{details.overview}</p>
       <CastCrew credits={credits} />
-    </div>
+    </TVDiv>
   )
 }
+
+const TVDiv = styled.div`
+  margin-top: -1em;
+`
 
 export default TVShow

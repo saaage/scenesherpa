@@ -35,6 +35,8 @@ const StyledListItem = styled.li`
   margin-left: 8px;
   margin-right: 8px;
   height: 372px;
+  overflow: hidden;
+  vertical-align: top;
   div {
     height: 258px;
     overflow: hidden;
@@ -56,7 +58,6 @@ const StyledListItem = styled.li`
     margin-top: auto;
     margin-bottom: auto;
   }
-  overflow: hidden;
 `
 
 export default TVListItem

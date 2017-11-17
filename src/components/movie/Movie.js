@@ -6,6 +6,7 @@ import getYear from 'date-fns/get_year'
 import CastCrew from 'containers/people/CastCrew'
 import SubjectImage from 'styled/SubjectImage'
 import Backdrop from 'styled/Backdrop'
+import styled from 'styled-components'
 
 const Movie = (props) => {
   const {
@@ -13,7 +14,7 @@ const Movie = (props) => {
   } = props
   if (details.id) {
     return (
-      <div>
+      <MovieDiv>
         <Backdrop>
           <img
             src={`${config.base_url}${config.backdrop_sizes[3]}${details.backdrop_path}`}
@@ -29,10 +30,14 @@ const Movie = (props) => {
         <h2>{details.title} ({getYear(details.release_date)})</h2>
         <p>{details.overview}</p>
         <CastCrew credits={credits} />
-      </div>
+      </MovieDiv>
     )
   }
   return <h1>presentation loading...</h1>
 }
+
+const MovieDiv = styled.div`
+  margin-top: -1em;
+`
 
 export default Movie
