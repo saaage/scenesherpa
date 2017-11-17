@@ -23,6 +23,9 @@ class MovieContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState(({
+      isLoading: true
+    }))
     this.getInfo(nextProps.match.params.id)
   }
 
@@ -41,7 +44,7 @@ class MovieContainer extends Component {
   }
 
   render() {
-    if (this.state.loading) {
+    if (this.state.isLoading) {
       return <h1>container making api call...</h1>
     }
     return <Movie {...this.state} />

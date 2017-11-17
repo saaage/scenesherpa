@@ -22,6 +22,9 @@ class ActorContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState(({
+      isLoading: true
+    }))
     this.getInfo(nextProps.match.params.id)
   }
 
