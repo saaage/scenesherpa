@@ -4,8 +4,8 @@ import axios from 'axios'
 import OptionsList from 'components/welcome/OptionsList'
 import Input from 'styled/Input'
 
-const { API_KEY } = process.env
-const API_URL = 'http://api.themoviedb.org/3'
+const API_KEY = process.env.API_KEY
+const API_URL = 'https://api.themoviedb.org/3'
 
 class Search extends Component {
   state = {
