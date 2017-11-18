@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config webpack.dev.js --env.API_KEY=$(echo $API_KEY)",
-    "build": "webpack --config webpack.prod.js",
-    "start": "node index.js",
+    "build": "webpack --config webpack.prod.js --env.API_KEY=$(echo $API_KEY) --progress --colors",
+    "start": "NODE_ENV=production node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
