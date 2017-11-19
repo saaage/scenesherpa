@@ -1,6 +1,5 @@
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = (env) => {
@@ -11,9 +10,10 @@ module.exports = (env) => {
   }
   return merge(common, {
     plugins: [
-      new UglifyJSPlugin(),
+      new webpack.optimize.UglifyJsPlugin(),
       new webpack.DefinePlugin({
-        'process.env.API_KEY': JSON.stringify(env.API_KEY)
+        'process.env.API_KEY': JSON.stringify(env.API_KEY),
+        'process.env.NODE_ENV': JSON.stringify('production')
       })
     ]
   })
