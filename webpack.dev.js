@@ -7,12 +7,12 @@ module.exports = (env) => {
   if (env.API_KEY) {
     console.log('\x1b[36m%s\x1b[0m', '\nAPI key loaded\n')
   } else {
-    console.log('\x1b[33m%s\x1b[0m: ', '\nWarning - No API_KEY declared\n')
+    console.log('\x1b[33m%s\x1b[0m', '\nWarning - No API_KEY declared\n')
   }
 
   return merge(common, {
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      contentBase: path.join(__dirname, 'app/dist'),
       compress: true,
       historyApiFallback: true,
       hot: true,
@@ -22,6 +22,7 @@ module.exports = (env) => {
       port: 9000,
       stats: 'minimal'
     },
+    devtool: 'eval',
     plugins: [
       new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
