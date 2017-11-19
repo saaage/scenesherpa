@@ -13,7 +13,7 @@ const TVListItem = (props) => {
         <div>
           <Link to={`/tv/${props.id}`}>
             <img
-              src={`${images.base_url}${images.poster_sizes[4]}${props.poster_path}`}
+              src={`${images.secure_base_url}${images.poster_sizes[4]}${props.poster_path}`}
               alt={props.name}
             />
           </Link>

@@ -13,13 +13,13 @@ const TVShow = (props) => {
     <TVDiv>
       <Backdrop>
         <img
-          src={`${images.base_url}${images.backdrop_sizes[3]}${details.backdrop_path}`}
+          src={`${images.secure_base_url}${images.backdrop_sizes[3]}${details.backdrop_path}`}
           alt={details.name}
         />
       </Backdrop>
       <SubjectImage>
         <img
-          src={`${images.base_url}${images.poster_sizes[5]}${details.poster_path}`}
+          src={`${images.secure_base_url}${images.poster_sizes[5]}${details.poster_path}`}
           alt={details.name}
         />
       </SubjectImage>

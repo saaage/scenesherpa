@@ -17,13 +17,13 @@ const Movie = (props) => {
       <MovieDiv>
         <Backdrop>
           <img
-            src={`${config.base_url}${config.backdrop_sizes[3]}${details.backdrop_path}`}
+            src={`${config.secure_base_url}${config.backdrop_sizes[3]}${details.backdrop_path}`}
             alt={details.name}
           />
         </Backdrop>
         <SubjectImage>
           <img
-            src={`${config.base_url}${config.poster_sizes[4]}${details.poster_path}`}
+            src={`${config.secure_base_url}${config.poster_sizes[4]}${details.poster_path}`}
             alt={details.title}
           />
         </SubjectImage>

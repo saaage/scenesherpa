@@ -13,7 +13,7 @@ const MovieListItem = (props) => {
         <Link to={`/movie/${props.id}`}>
           <div>
             <img
-              src={`${images.base_url}${images.poster_sizes[4]}${props.poster_path}`}
+              src={`${images.secure_base_url}${images.poster_sizes[4]}${props.poster_path}`}
               alt={props.title}
             />
           </div>

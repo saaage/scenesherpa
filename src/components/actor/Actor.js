@@ -23,7 +23,7 @@ const Actor = (props) => {
       <div>
         <SubjectImage>
           <img
-            src={`${config.base_url}${config.profile_sizes[2]}${profile.profile_path}`}
+            src={`${config.secure_base_url}${config.profile_sizes[2]}${profile.profile_path}`}
             alt={profile.name}
           />
         </SubjectImage>

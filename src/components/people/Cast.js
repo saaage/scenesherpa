@@ -18,7 +18,7 @@ const Cast = (props) => {
           <div>
             <Link to={`/actor/${a.id}`}>
               <img
-                src={`${images.base_url}${images.profile_sizes[3]}${a.profile_path}`}
+                src={`${images.secure_base_url}${images.profile_sizes[3]}${a.profile_path}`}
                 alt={a.name}
               />
             </Link>
