@@ -5,6 +5,7 @@ import formatDate from 'date-fns/format'
 import ActorMedia from 'containers/actor/ActorMedia'
 import Biography from 'components/actor/Biography'
 import SubjectImage from 'styled/SubjectImage'
+import Spinner from 'components/svg/Spinner'
 
 const Actor = (props) => {
   const {
@@ -36,7 +37,7 @@ const Actor = (props) => {
       </div>
     )
   }
-  return <h2>presentation loading...</h2>
+  return null
 }
 
 export default Actor

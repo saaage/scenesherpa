@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import OptionsList from 'components/welcome/OptionsList'
 import Input from 'styled/Input'
+import Button from 'styled/Button'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
@@ -11,7 +12,8 @@ class Search extends Component {
   state = {
     query: '',
     results: [],
-    showDropdown: false
+    showDropdown: false,
+    showButton: false
   }
 
   getResults = () => {
@@ -30,6 +32,18 @@ class Search extends Component {
   showDropdown = () => {
     this.setState(({
       showDropdown: true
+    }))
+  }
+
+  hideButton = () => {
+    this.setState(({
+      showButton: false
+    }))
+  }
+
+  showButton = () => {
+    this.setState(({
+      showButton: true
     }))
   }
 
@@ -67,9 +81,16 @@ class Search extends Component {
             type="text"
             innerRef={input => this.search = input}
             onChange={this.handleChange}
+            onFocus={this.showButton}
+            onBlur={this.hideButton}
             placeholder="Find movie, tv show, actor/actress..."
           />
-          <button onMouseDown={this.handleMouseDown}>Go</button>
+          <Button
+            onMouseDown={this.handleMouseDown}
+            show={this.state.showButton}
+          >
+            GO!
+          </Button>
           <OptionsList
             show={this.state.showDropdown}
             hide={this.hideDropdown}

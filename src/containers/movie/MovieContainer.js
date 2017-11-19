@@ -4,6 +4,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 import Movie from 'components/movie/Movie'
+import Loader from 'styled/Loader'
+import Spinner from 'components/svg/Spinner'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
@@ -45,7 +47,13 @@ class MovieContainer extends Component {
 
   render() {
     if (this.state.isLoading) {
-      return <h1>container making api call...</h1>
+      return (
+        <Loader>
+          <div>
+            <Spinner />
+          </div>
+        </Loader>
+      )
     }
     return <Movie {...this.state} />
   }
