@@ -6,7 +6,11 @@ const Option = (props) => {
   if (props.media_type === 'person') {
     return (
       <Link to={`/actor/${props.id}`}>
-        <button onMouseDown={props.stopBlur} onClick={props.hide}>
+        <button 
+          onMouseDown={props.stopBlur}
+          onMouseUp={props.mouseUp}
+          onClick={props.hide}
+        >
           {props.name}
         </button>
       </Link>
@@ -14,7 +18,11 @@ const Option = (props) => {
   } else if (props.media_type === 'tv') {
     return (
       <Link to={`/tv/${props.id}`}>
-        <button onMouseDown={props.stopBlur} onClick={props.hide}>
+        <button
+          onMouseDown={props.stopBlur}
+          onMouseUp={props.mouseUp}
+          onClick={props.hide}
+        >
           {props.name}
         </button>
       </Link>
@@ -22,7 +30,11 @@ const Option = (props) => {
   } else if (props.media_type === 'movie') {
     return (
       <Link to={`/movie/${props.id}`}>
-        <button onMouseDown={props.stopBlur} onClick={props.hide}>
+        <button
+          onMouseDown={props.stopBlur}
+          onMouseUp={props.mouseUp}
+          onClick={props.hide}
+        >
           {props.title}
         </button>
       </Link>

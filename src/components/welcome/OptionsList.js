@@ -13,6 +13,7 @@ const OptionsList = (props) => {
         <Option
           hide={props.hide}
           stopBlur={props.stopBlur}
+          mouseUp={props.mouseUp}
           key={o.id}
           {...o}
         />

@@ -25,7 +25,6 @@ class Search extends Component {
       showDropdown: false
     }))
     this.search.value = ''
-    this.search.blur()
   }
 
   showDropdown = () => {
@@ -55,6 +54,10 @@ class Search extends Component {
     e.preventDefault()
   }
 
+  handleMouseUp = () => {
+    this.search.blur()
+  }
+
   render() {
     const { results } = this.state
     return (
@@ -71,6 +74,7 @@ class Search extends Component {
             show={this.state.showDropdown}
             hide={this.hideDropdown}
             stopBlur={this.handleMouseDown}
+            mouseUp={this.handleMouseUp}
             options={results}
           />
         </form>
