@@ -12,7 +12,7 @@ const Movie = (props) => {
   const {
     id, config, details, credits, videos, similar
   } = props
-  if (details.id) {
+  if (details) {
     return (
       <MovieDiv>
         <Backdrop>
