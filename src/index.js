@@ -17,6 +17,8 @@ ReactDOM.render(
 injectGlobal`
   body {
     margin: 0;
+    font-size: 16px;
+    font-family: Alegreya, serif;
   }
 `
 

@@ -29,7 +29,7 @@ const MovieListItem = (props) => {
 const StyledListItem = styled.li`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: #4F4F4F;
-  font-family: Alegreya;
+  font-family: Alegreya, serif;
   height: 370px;
   margin-bottom: 8px;
   margin-left: 8px;

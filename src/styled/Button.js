@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Button = styled.button` 
   display: ${props => props.show ? 'inline' : 'none'};
   font: inherit;
-  font-family: Alegreya;
+  font-family: Alegreya, serif;
   background: none;
   border: 0;
   color: inherit;
