@@ -10,6 +10,7 @@ const Cast = (props) => {
   const { cast } = props
   const images = JSON.parse(localStorage.getItem('images'))
   const ids = []
+  const noImageActors = []
   const actors = cast.map((a) => {
     if (a.profile_path && ids.indexOf(a.id) === -1) {
       ids.push(a.id)
@@ -23,31 +24,44 @@ const Cast = (props) => {
               />
             </Link>
           </div>
-          <p>{a.name}: </p>
+          <p>{a.name} </p>
           <b><em>{a.character}</em></b>
         </Character>
       )
-    } else if (ids.indexOf(a.id) === -1) {
+    } else if (!a.profile_path && ids.indexOf(a.id) === -1) {
       ids.push(a.id)
-      return (
-        <Character key={a.id}>
-          <div />
-          <p>{a.name}</p>
-          <em>{a.character}</em>
-        </Character>
-      )
+      noImageActors.push(a)
+      return null
     }
     return null
   })
+  const remaining = noImageActors.map((a) => {
+    return (
+      <NoImageCharacter key={a.id}>
+        <Link to={`/actor/${a.id}`}>
+          {a.name}:
+          <b><em>  {a.character}</em></b>
+        </Link>
+      </NoImageCharacter>
+    )
+  })
   return (
-    <List>{actors}</List>
+    <span>
+      <List>{actors}</List>
+      { remaining.length > 0 &&
+        <span>
+          <h4>No Profile Images</h4>
+          <List>{remaining}</List>
+        </span>
+      }
+    </span>
   )
 }
 
 const Character = styled.li`
   box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
   color: #4F4F4F;
-  font-family: Alegreya;
+  font-family: Alegreya, serif;
   display: inline-block;
   margin-bottom: 8px;
   margin-left: 8px;
@@ -71,5 +85,11 @@ const Character = styled.li`
     height: 46px;
   }
 `
-
+const NoImageCharacter = styled.li`
+  font-family: Alegreya, serif;
+  margin-left: 1em;
+  a {
+    text-decoration: none;
+  }
+`
 export default Cast
