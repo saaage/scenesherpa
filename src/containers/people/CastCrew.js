@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 
 import Cast from 'components/people/Cast'
 import Crew from 'components/people/Crew'
-import ScreenSizedDiv from 'styled/ScreenSizedDiv'
 
 class CastCrew extends Component {
   state = {
@@ -27,7 +26,7 @@ class CastCrew extends Component {
 
   render() {
     return (
-      <ScreenSizedDiv>
+      <div>
         <button onClick={this.selectCast}>Cast</button>
         <button onClick={this.selectCrew}>Crew</button>
         {
@@ -35,7 +34,7 @@ class CastCrew extends Component {
             <Cast cast={this.props.credits.cast} /> :
             <Crew crew={this.props.credits.crew}>CREW</Crew>
         }
-      </ScreenSizedDiv>
+      </div>
     )
   }
 }

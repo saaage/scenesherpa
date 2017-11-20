@@ -4,7 +4,6 @@ import React from 'react'
 
 import TVListItem from 'components/tv/TVListItem'
 import MediaList from 'styled/MediaList'
-import ScreenSizedDiv from 'styled/ScreenSizedDiv'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
@@ -20,9 +19,9 @@ const TVCredits = (props) => {
     return null
   })
   return (
-    <ScreenSizedDiv>
+    <div>
       <MediaList>{credits}</MediaList>
-    </ScreenSizedDiv>
+    </div>
   )
 }
 

@@ -4,7 +4,6 @@ import React from 'react'
 
 import MovieListItem from 'components/movie/MovieListItem'
 import MediaList from 'styled/MediaList'
-import ScreenSizedDiv from 'styled/ScreenSizedDiv'
 
 const MovieCredits = (props) => {
   const { cast } = props.movies
@@ -17,9 +16,9 @@ const MovieCredits = (props) => {
     return null
   })
   return (
-    <ScreenSizedDiv>
+    <div>
       <MediaList>{credits}</MediaList>
-    </ScreenSizedDiv>
+    </div>
   )
 }
 
