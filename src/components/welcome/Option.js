@@ -6,41 +6,45 @@ const Option = (props) => {
   if (props.media_type === 'person') {
     return (
       <Link to={`/actor/${props.id}`}>
-        <button 
+        <Button 
           onMouseDown={props.stopBlur}
           onMouseUp={props.mouseUp}
           onClick={props.hide}
         >
           {props.name}
-        </button>
+        </Button>
       </Link>
     )
   } else if (props.media_type === 'tv') {
     return (
       <Link to={`/tv/${props.id}`}>
-        <button
+        <Button
           onMouseDown={props.stopBlur}
           onMouseUp={props.mouseUp}
           onClick={props.hide}
         >
           {props.name}
-        </button>
+        </Button>
       </Link>
     )
   } else if (props.media_type === 'movie') {
     return (
       <Link to={`/movie/${props.id}`}>
-        <button
+        <Button
           onMouseDown={props.stopBlur}
           onMouseUp={props.mouseUp}
           onClick={props.hide}
         >
           {props.title}
-        </button>
+        </Button>
       </Link>
     )
   }
-  return 'X'
+  return null
 }
+
+const Button = styled.button`
+  width: 100%;
+`
 
 export default Option

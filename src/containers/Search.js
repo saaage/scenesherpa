@@ -75,8 +75,8 @@ class Search extends Component {
   render() {
     const { results } = this.state
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} onBlur={this.hideDropdown}>
+      <div className={this.props.className}>
+        <form style={{width: '100%'}} onSubmit={this.handleSubmit} onBlur={this.hideDropdown}>
           <Input
             type="text"
             innerRef={input => this.search = input}
@@ -85,13 +85,8 @@ class Search extends Component {
             onBlur={this.hideButton}
             placeholder="Find movie, tv show, actor/actress..."
           />
-          <Button
-            onMouseDown={this.handleMouseDown}
-            show={this.state.showButton}
-          >
-            GO!
-          </Button>
           <OptionsList
+            className="options"
             show={this.state.showDropdown}
             hide={this.hideDropdown}
             stopBlur={this.handleMouseDown}

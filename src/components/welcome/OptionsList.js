@@ -21,7 +21,7 @@ const OptionsList = (props) => {
     }
     return null
   })
-  return <DropDown show={props.show}>{options}</DropDown>
+  return <DropDown className={props.className} show={props.show}>{options}</DropDown>
 }
 OptionsList.propTypes = {
   show: PropTypes.bool.isRequired
@@ -29,7 +29,12 @@ OptionsList.propTypes = {
 
 const DropDown = styled.div`
   display: ${props => props.show ? 'block' : 'none'};
-  padding: 1em;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 10em;
+  margin-left: 1em;
+  margin-right: .5em;
+  overflow: hidden;
   button {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     display: block;
