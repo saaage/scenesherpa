@@ -1,8 +1,10 @@
 import React from 'react'
+
 import CastCrew from 'containers/people/CastCrew'
 import Backdrop from 'styled/Backdrop'
 import SubjectImage from 'styled/SubjectImage'
 import styled from 'styled-components'
+import Div from 'styled/Div'
 
 const TVShow = (props) => {
   const images = JSON.parse(localStorage.getItem('images'))
@@ -17,15 +19,17 @@ const TVShow = (props) => {
           alt={details.name}
         />
       </Backdrop>
-      <SubjectImage>
-        <img
-          src={`${images.secure_base_url}${images.poster_sizes[5]}${details.poster_path}`}
-          alt={details.name}
-        />
-      </SubjectImage>
-      <h2>{details.name}</h2>
-      <p>{details.overview}</p>
-      <CastCrew credits={credits} />
+      <Div>
+        <SubjectImage>
+          <img
+            src={`${images.secure_base_url}${images.poster_sizes[5]}${details.poster_path}`}
+            alt={details.name}
+          />
+        </SubjectImage>
+        <h2>{details.name}</h2>
+        <p>{details.overview}</p>
+        <CastCrew credits={credits} />
+      </Div>
     </TVDiv>
   )
 }

@@ -13,11 +13,12 @@ const API_URL = 'https://api.themoviedb.org/3'
 
 class ActorContainer extends Component {
   state = {
+    isLoading: true,
+    error: false,
     config: JSON.parse(localStorage.getItem('images')),
     profile: {},
     movies: {},
-    tv: {},
-    isLoading: true
+    tv: {}
   }
 
   componentDidMount() {
@@ -32,15 +33,23 @@ class ActorContainer extends Component {
   }
 
   getInfo = async (id = this.props.match.params.id) => {
-    const profile = await axios.get(`${API_URL}/person/${id}?api_key=${API_KEY}&language=en-US`)
-    const movies = await axios.get(`${API_URL}/person/${id}/movie_credits?api_key=${API_KEY}&language=en-us`)
-    const tv = await axios.get(`${API_URL}/person/${id}/tv_credits?api_key=${API_KEY}&language=en-US`)
-    this.setState(({
-      profile: profile.data,
-      movies: movies.data,
-      tv: tv.data,
-      isLoading: false
-    }))
+    try {
+      const profile = await axios.get(`${API_URL}/person/${id}?api_key=${API_KEY}&language=en-US`)
+      const movies = await axios.get(`${API_URL}/person/${id}/movie_credits?api_key=${API_KEY}&language=en-us`)
+      const tv = await axios.get(`${API_URL}/person/${id}/tv_credits?api_key=${API_KEY}&language=en-US`)
+      this.setState(({
+        profile: profile.data,
+        movies: movies.data,
+        tv: tv.data,
+        isLoading: false
+      }))
+    } catch (err) {
+      this.setState(({
+        error: true,
+        isLoading: false
+      }))
+      console.log(err)
+    }
   }
 
   render() {
@@ -52,6 +61,8 @@ class ActorContainer extends Component {
           </div>
         </Loader>
       )
+    } else if (this.state.error) {
+      return <h2 style={{ marginLeft: '1em' }}>...uh oh! something went wrong!!</h2>
     }
     return (
       <Div>
