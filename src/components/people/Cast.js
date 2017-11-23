@@ -45,17 +45,20 @@ const Cast = (props) => {
       </NoImageCharacter>
     )
   })
-  return (
-    <span>
-      <List>{actors}</List>
-      { remaining.length > 0 &&
-        <span>
-          <h4>No Profile Images</h4>
-          <List>{remaining}</List>
-        </span>
-      }
-    </span>
-  )
+  if (actors.length > 0 || remaining.length > 0) {
+    return (
+      <span>
+        <List>{actors}</List>
+        {remaining.length > 0 &&
+          <span>
+            <h4>No Profile Image</h4>
+            <List>{remaining}</List>
+          </span>
+        }
+      </span>
+    )
+  }
+  return <h3>No cast listed for {props.name}</h3>
 }
 
 const Character = styled.li`

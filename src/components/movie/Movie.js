@@ -19,7 +19,7 @@ const Movie = (props) => {
         <Backdrop>
           <img
             src={`${config.secure_base_url}${config.backdrop_sizes[3]}${details.backdrop_path}`}
-            alt={details.name}
+            alt={details.title}
           />
         </Backdrop>
         <Div>
@@ -29,14 +29,14 @@ const Movie = (props) => {
               alt={details.title}
             />
           </SubjectImage>
-          <h2>{details.title} ({getYear(details.release_date)})</h2>
+          {details.release_date && <h2>{details.title} ({getYear(details.release_date)})</h2>}
           <p>{details.overview}</p>
-          <CastCrew credits={credits} />
+          <CastCrew title={details.title} credits={credits} />
         </Div>
       </MovieDiv>
     )
   }
-  return <h1>presentation loading...</h1>
+  return null
 }
 
 const MovieDiv = styled.div`

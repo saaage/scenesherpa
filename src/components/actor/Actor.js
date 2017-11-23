@@ -5,7 +5,6 @@ import formatDate from 'date-fns/format'
 import ActorMedia from 'containers/actor/ActorMedia'
 import Biography from 'components/actor/Biography'
 import SubjectImage from 'styled/SubjectImage'
-import Spinner from 'components/svg/Spinner'
 
 const Actor = (props) => {
   const {
@@ -29,11 +28,11 @@ const Actor = (props) => {
           />
         </SubjectImage>
         <h2>{profile.name}</h2>
-        <h3>{age} years old</h3>
-        <p>Born: {formatDate(bDay, 'MMMM DD, YYYY')}</p>
-        <p>Hometown: {profile.place_of_birth}</p>
+        {profile.birthday && <h3>{age} years old</h3>}
+        {profile.birthday && <p>Born: {formatDate(bDay, 'MMMM DD, YYYY')}</p>}
+        {profile.hometown && <p>Hometown: {profile.place_of_birth}</p>}
         <Biography bio={profile.biography} />
-        <ActorMedia id={props.id} tv={tv} movies={movies}/>
+        <ActorMedia id={props.id} tv={tv} movies={movies} name={profile.name} />
       </div>
     )
   }

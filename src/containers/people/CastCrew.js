@@ -31,8 +31,16 @@ class CastCrew extends Component {
         <button onClick={this.selectCrew}>Crew</button>
         {
           this.state.selection === 'cast' ?
-            <Cast cast={this.props.credits.cast} /> :
-            <Crew crew={this.props.credits.crew}>CREW</Crew>
+            <Cast
+              name={this.props.title || this.props.name}
+              cast={this.props.credits.cast}
+            /> :
+            <Crew
+              name={this.props.title || this.props.name}
+              crew={this.props.credits.crew}
+            >
+              CREW
+            </Crew>
         }
       </div>
     )

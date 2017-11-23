@@ -41,19 +41,22 @@ const Crew = (props) => {
       </NoImageCrew>
     )
   })
-  return (
-    <span>
-      <List>{staff}</List>
-      { remaining.length > 0 &&
-        <span>
-          <h4>No Profile Image</h4>
-          <List>
-            {remaining}
-          </List>
-        </span>
-      }
-    </span>
-  )
+  if (staff.length > 0 || remaining.length > 0) {
+    return (
+      <span>
+        <List>{staff}</List>
+        {remaining.length > 0 &&
+          <span>
+            <h4>No Profile Image</h4>
+            <List>
+              {remaining}
+            </List>
+          </span>
+        }
+      </span>
+    )
+  }
+  return <h3>No crew listed for {props.name}</h3>
 }
 
 const CrewMember = styled.li`

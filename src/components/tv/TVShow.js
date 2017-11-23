@@ -28,7 +28,7 @@ const TVShow = (props) => {
         </SubjectImage>
         <h2>{details.name}</h2>
         <p>{details.overview}</p>
-        <CastCrew credits={credits} />
+        <CastCrew name={details.name} credits={credits} />
       </Div>
     </TVDiv>
   )

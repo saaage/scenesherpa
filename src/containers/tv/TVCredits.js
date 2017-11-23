@@ -18,11 +18,14 @@ const TVCredits = (props) => {
     }
     return null
   })
-  return (
-    <div>
-      <MediaList>{credits}</MediaList>
-    </div>
-  )
+  if (credits.length > 0) {
+    return (
+      <div>
+        <MediaList>{credits}</MediaList>
+      </div>
+    )
+  }
+  return <h3>No TV shows listed for {props.name}</h3>
 }
 
 export default TVCredits
