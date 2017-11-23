@@ -53,7 +53,9 @@ class Search extends Component {
     }, () => {
       if (this.state.query) {
         this.showDropdown()
-        this.getResults()
+        if (this.state.query.length % 2 === 0) {
+          this.getResults()
+        }
       } else if (!this.state.query) {
         this.hideDropdown()
       }
