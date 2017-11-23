@@ -7,6 +7,7 @@ import CastCrew from 'containers/people/CastCrew'
 import SubjectImage from 'styled/SubjectImage'
 import Backdrop from 'styled/Backdrop'
 import styled from 'styled-components'
+import Div from 'styled/Div'
 
 const Movie = (props) => {
   const {
@@ -21,15 +22,17 @@ const Movie = (props) => {
             alt={details.name}
           />
         </Backdrop>
-        <SubjectImage>
-          <img
-            src={`${config.secure_base_url}${config.poster_sizes[4]}${details.poster_path}`}
-            alt={details.title}
-          />
-        </SubjectImage>
-        <h2>{details.title} ({getYear(details.release_date)})</h2>
-        <p>{details.overview}</p>
-        <CastCrew credits={credits} />
+        <Div>
+          <SubjectImage>
+            <img
+              src={`${config.secure_base_url}${config.poster_sizes[4]}${details.poster_path}`}
+              alt={details.title}
+            />
+          </SubjectImage>
+          <h2>{details.title} ({getYear(details.release_date)})</h2>
+          <p>{details.overview}</p>
+          <CastCrew credits={credits} />
+        </Div>
       </MovieDiv>
     )
   }

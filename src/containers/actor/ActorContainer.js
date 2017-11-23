@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import axios from 'axios'
+import Div from 'styled/Div'
 
 import Actor from 'components/actor/Actor'
 import Loader from 'styled/Loader'
@@ -53,9 +54,9 @@ class ActorContainer extends Component {
       )
     }
     return (
-      <div>
+      <Div>
         <Actor id={this.props.match.params.id} {...this.state} />
-      </div>
+      </Div>
     )
   }
 }

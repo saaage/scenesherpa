@@ -4,8 +4,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 import Movie from 'components/movie/Movie'
-import Loader from 'styled/Loader'
 import Spinner from 'components/svg/Spinner'
+import Loader from 'styled/Loader'
+import Div from 'styled/Div'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
