@@ -21,7 +21,10 @@ const OptionsList = (props) => {
     }
     return null
   })
-  return <DropDown className={props.className} show={props.show}>{options}</DropDown>
+  if (options.length > 0) {
+    return <DropDown className={props.className} show={props.show}>{options}</DropDown>
+  }
+  return null
 }
 OptionsList.propTypes = {
   show: PropTypes.bool.isRequired
