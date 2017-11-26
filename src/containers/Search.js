@@ -3,7 +3,6 @@ import axios from 'axios'
 
 import OptionsList from 'components/welcome/OptionsList'
 import Input from 'styled/Input'
-import Button from 'styled/Button'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
@@ -12,8 +11,7 @@ class Search extends Component {
   state = {
     query: '',
     results: [],
-    showDropdown: false,
-    showButton: false
+    showDropdown: false
   }
 
   getResults = () => {
