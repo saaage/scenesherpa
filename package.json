@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --open --config webpack.dev.js --env.API_KEY=$(echo $API_KEY)",
     "build": "webpack --config webpack.prod.js --env.API_KEY=$(echo $API_KEY) --progress --colors",
+    "heroku-postbuild": "webpack --config webpack.prod.js --env.API_KEY=$(echo $API_KEY) --progress",
     "start": "NODE_ENV=production node app/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
