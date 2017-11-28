@@ -76,7 +76,7 @@ class Search extends Component {
     const { results } = this.state
     return (
       <div className={this.props.className}>
-        <form style={{width: '100%'}} onSubmit={this.handleSubmit} onBlur={this.hideDropdown}>
+        <form style={{ width: '100%' }} onSubmit={this.handleSubmit} onBlur={this.hideDropdown}>
           <Input
             type="text"
             innerRef={input => this.search = input}
