@@ -12,7 +12,7 @@ module.exports = (env) => {
 
   return merge(common, {
     devServer: {
-      contentBase: path.join(__dirname, 'app/dist'),
+      contentBase: path.join(__dirname, 'app'),
       compress: true,
       historyApiFallback: true,
       hot: true,
