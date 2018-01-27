@@ -32,18 +32,17 @@ OptionsList.propTypes = {
 
 const DropDown = styled.div`
   display: ${props => props.show ? 'block' : 'none'};
-  border: 1px solid;
-  border-radius: 5px;
   max-height: 10em;
-  margin-left: 1em;
-  margin-right: .5em;
   overflow: hidden;
   button {
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    // box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     display: block;
     height:2.5em;
     background: none;
-    border: 0;
+    border: 1px solid gray;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
     color: inherit;
     /* cursor: default; */
     font: inherit;
