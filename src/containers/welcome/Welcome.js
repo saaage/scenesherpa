@@ -3,38 +3,53 @@ import styled from 'styled-components'
 
 import Search from 'containers/Search'
 
-
 import SherpaLogo from 'components/SherpaLogo'
 
 const Welcome = () => (
   <Layout>
-    <h1 className="title">Scene Sherpa</h1>
-    <SherpaLogo className="logo" color="#5B97BA" />
+    <h2 className="title">Scene Sherpa</h2>
+    <SherpaLogo
+      className="logo"
+      color="#5B97BA"
+      width="117"
+      height="225"
+    />
     <Search className="search" />
   </Layout>
 )
 
+// Layout styles are only concerned with positioning of the elements
+//  inside. Layout should not be modifying the styles of the components
+//  that live inside.
 const Layout = styled.div`
-  display: grid;
-  grid-template-columns: 2em auto 2em;
-  grid-template-rows: 1fr 2fr 5fr;
-  grid-template-areas: 
-    ". header ."
-    ". logo ."
-    ". search .";
-  justify-items: center;
-  .logo {
-    grid-area: logo;
-  }
+  display: flex;
+  flex-direction: column;
+
   .title {
-    grid-area: header;
+    color: #5B97BA;
+    margin: 1em 1em 2em .5em;
+    font-family: sans-serif;
+    font-weight: 600;
   }
+
+  .logo {
+    align-self: center;
+    margin-bottom: 1em;
+    margin-top: 3em;
+  }
+
   .search {
-    grid-area: search;
-    justify-self: stretch;
-  }
-  .options {
-    grid-area: search;
+    align-items: center;
+    align-self: center;
+    border-radius: 5px;
+    border: 1px solid gray;
+    display: flex;
+    min-height: 40px;
+    width: 97vw;
+
+    form {
+      margin: 0 0 0 0;
+    }
   }
 `
 
