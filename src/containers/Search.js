@@ -83,7 +83,7 @@ class Search extends Component {
             onChange={this.handleChange}
             onFocus={this.showButton}
             onBlur={this.hideButton}
-            placeholder="Find movie, tv show, actor/actress..."
+            placeholder=" Find movie, tv show, actor/actress..."
           />
           <OptionsList
             className="options"
