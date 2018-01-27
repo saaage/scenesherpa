@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import axios from 'axios'
+import styled from 'styled-components'
 
 import MovieContainer from 'containers/movie/MovieContainer'
 import TVContainer from 'containers/tv/TVContainer'
@@ -38,7 +39,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <AppLayout>
         { !(this.props.location.pathname === '/') && <Nav><Search /></Nav>}
         <Switch>
           <Route exact path="/" component={Welcome} />
@@ -46,9 +47,14 @@ class App extends Component {
           <Route path="/movie/:id" component={MovieContainer} />
           <Route path="/tv/:id" component={TVContainer} />
         </Switch>
-      </div>
+      </AppLayout>
     )
   }
 }
+
+const AppLayout = styled.div`
+  background-color: #ededed;
+  height: 100vh;
+`
 
 export default App
