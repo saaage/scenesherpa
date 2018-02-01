@@ -31,23 +31,24 @@ OptionsList.propTypes = {
 }
 
 const DropDown = styled.div`
-  display: ${props => props.show ? 'block' : 'none'};
-  max-height: 10em;
+  display: ${props => props.show ? 'flex' : 'none'};
+  flex-direction: column;
+  min-height: 40px;
+  max-height: 160px;
   overflow: hidden;
+  width: 100%;
   button {
     // box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     display: block;
     height:2.5em;
     background: none;
-    border: 1px solid gray;
-    border-right: 0;
-    border-left: 0;
-    border-bottom: 0;
+    border: 1px solid lightgray;
+    border-top: 0;
     color: inherit;
     /* cursor: default; */
     font: inherit;
     line-height: normal;
-    overflow: visible;
+    overflow: hidden;
     padding: 4px;
   }
   button::-moz-focus-inner {
