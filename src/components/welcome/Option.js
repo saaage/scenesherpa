@@ -35,7 +35,7 @@ const Option = (props) => {
           onMouseUp={props.mouseUp}
           onClick={props.hide}
         >
-          {props.title}
+          <span className="optionTitle">{props.title}</span>
         </Button>
       </Link>
     )
@@ -45,6 +45,10 @@ const Option = (props) => {
 
 const Button = styled.button`
   width: 100%;
+
+  .optionTitle {
+    white-space: nowrap;
+  }
 `
 
 export default Option
