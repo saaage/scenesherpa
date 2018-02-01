@@ -9,7 +9,7 @@ const Input = styled.input`
   margin-bottom: .25rem;
   margin-top: .25rem;
   min-height: 25px;
-  padding-left: .5em;
+  padding-left: .5rem;
 
   :focus {
     outline: 0;
