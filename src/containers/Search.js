@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 
 import OptionsList from 'components/welcome/OptionsList'
 import Input from 'styled/Input'
+import SearchIcon from 'styled/SearchIcon'
 
 const { API_KEY } = process.env
 const API_URL = 'https://api.themoviedb.org/3'
@@ -75,16 +77,29 @@ class Search extends Component {
   render() {
     const { results } = this.state
     return (
-      <div className={this.props.className}>
-        <form style={{ width: '100%' }} onSubmit={this.handleSubmit} onBlur={this.hideDropdown}>
-          <Input
-            type="text"
-            innerRef={input => this.search = input}
-            onChange={this.handleChange}
-            onFocus={this.showButton}
-            onBlur={this.hideButton}
-            placeholder=" Find movie, tv show, actor/actress..."
-          />
+      <SearchStyled className={this.props.className}>
+        <form
+          className="search__form"
+          onSubmit={this.handleSubmit}
+          onBlur={this.hideDropdown}
+        >
+          <div className="inputSearch__container">
+            <div className="input__container">
+              <Input
+                className="input"
+                type="text"
+                innerRef={input => this.search = input}
+                onChange={this.handleChange}
+                onFocus={this.showButton}
+                onBlur={this.hideButton}
+                placeholder=" find a movie title, actor, etc..."
+              />
+            </div>
+            <SearchIcon
+              className="searchIcon"
+              color="#ededed"
+            />
+          </div>
           <OptionsList
             className="options"
             show={this.state.showDropdown}
@@ -94,9 +109,53 @@ class Search extends Component {
             options={results}
           />
         </form>
-      </div>
+      </SearchStyled>
     )
   }
 }
+
+const SearchStyled = styled.div`
+  align-self: center;
+  border-radius: 3px;
+  width: 97vw;
+
+  .input__container {
+    border: 1px solid lightgray;
+    border-radius: 3px 0 0 0;
+    border-right: 0;
+    display: flex;
+    flex: 1;
+  }
+
+  .input {
+    flex: 1;
+    min-height: 40px;
+  }
+
+  .input::placeholder {
+    color: #9e9e9e;
+  }
+
+  .searchIcon {
+    border: 1px solid lightgray;
+    border-left: none;
+    border-radius: 0 3px 0 0;
+    align-self: auto;
+    margin: 0;
+  }
+
+  .search__form {
+    margin: 0;
+    min-height: 40px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .inputSearch__container {
+    display: flex;
+    width: 100%;
+  }
+`
 
 export default Search
