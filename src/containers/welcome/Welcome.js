@@ -93,9 +93,9 @@ const WelcomeLayout = styled.div`
     }
 
     .logo {
-      height: 190px;
+      height: 165px;
       margin-top: 2rem;
-      width: 99px;
+      width: 86px;
     }
   }
 
