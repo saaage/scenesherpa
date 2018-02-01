@@ -16,6 +16,8 @@ ReactDOM.render(
 // eslint-disable-next-line
 injectGlobal`
   body {
+    background-color: #ededed;
+    box-sizing: border-box;
     margin: 0;
     font-size: 16px;
     font-family: Alegreya, serif;
