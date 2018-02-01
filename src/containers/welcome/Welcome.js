@@ -11,21 +11,19 @@ const Welcome = () => (
     <SherpaLogo
       className="logo"
       color="#5B97BA"
-      width="57"
-      height="110"
     />
     <h1 className="title">Scene Sherpa</h1>
     <p className="tagline">Tell us what you're looking for...</p>
-    <Search />
+    <Search className="search__styles--override" />
     <div className="footer__div">
       <Footer className="footer" />
     </div>
   </WelcomeLayout>
 )
 
-// Layout styles are only concerned with positioning of the elements
-//  inside. Layout should not be modifying the styles of the components
-//  that live inside.
+// Layout styles are mainly concerned with positioning of the elements
+//  inside. May also modify height and width to accomodate different
+//  screen sizes.
 const WelcomeLayout = styled.div`
   display: flex;
   flex-direction: column;
@@ -60,8 +58,58 @@ const WelcomeLayout = styled.div`
 
   .logo {
     align-self: center;
-    margin-bottom: 1em;
-    margin-top: 3em;
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+    width: 78px;
+    height: 150px;
+  }
+
+  // ipad (portrait)
+  @media only screen and (min-device-width: 768px) and (orientation: portrait) {
+    .logo {
+      height: 220px;
+      margin-top: 2rem;
+      width: 114px;
+    }
+  }
+
+  // ipad (landscape)
+  @media only screen and (min-device-width: 768px) and (orientation: landscape) {
+    .logo {
+      height: 220px;
+      margin-top: 2rem;
+      width: 114px;
+    }
+
+    .search__styles--override {
+      width: 768px;
+    }
+  }
+
+  // standard desktop
+  @media only screen and (min-device-width: 1224px) {
+    .search__styles--override {
+      width: 428px;
+    }
+
+    .logo {
+      height: 190px;
+      margin-top: 2rem;
+      width: 99px;
+    }
+  }
+
+  // HD desktop
+  @media only screen and (min-device-width: 1824px) {
+    .search__styles--override {
+      width: 528px;
+    }
+
+    .logo {
+      height: 190px;
+      margin-top: 3rem;
+      width: 99px;
+    }
   }
 `
 
