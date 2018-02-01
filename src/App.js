@@ -53,8 +53,6 @@ class App extends Component {
 }
 
 const AppLayout = styled.div`
-  background-color: #ededed;
-  height: 100vh;
 `
 
 export default App
