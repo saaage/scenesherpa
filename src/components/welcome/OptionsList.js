@@ -37,27 +37,9 @@ const DropDown = styled.div`
   max-height: 160px;
   overflow: hidden;
   width: 100%;
-  button {
-    // box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-    display: block;
-    height:2.5em;
-    background: none;
-    border: 1px solid lightgray;
-    border-top: 0;
-    color: inherit;
-    /* cursor: default; */
-    font: inherit;
-    line-height: normal;
-    overflow: hidden;
-    padding: 4px;
-  }
   button::-moz-focus-inner {
     border: 0;
     padding: 0;
-  }
-  a {
-    text-decoration: none;
-    font-family: Open Sans;
   }
 }
 `
